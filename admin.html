@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Admin Dashboard</title>
+    <link rel="shortcut icon" href="assets/imgs/favicon.ico">
+    <link rel="stylesheet" href="assets/css/plugins.css">
+    <link href="../src/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+  </head>
+  <body class="bg-sub_dark text-[14px] lg:px-[40px]">
+    <main class="container w-full mx-auto xxl:max-w-[1280px] xl:max-w-[1140px] lg:max-w-[1024px] md:max-w-[768px] sm:max-w-[640px] px-[15px] py-[40px]">
+      <div id="loginSection" class="bg-dark rounded-[10px] p-[30px] mb-[40px] border border-sub_dark" style="max-width:400px;margin:40px auto;">
+        <h3 class="text-[24px] md:text-[30px] font-[500] text-center mb-[20px]">Admin Login</h3>
+        <form id="loginForm" method="POST" action="/api/login" class="grid grid-cols-1 gap-[15px]">
+          <div>
+            <label class="block mb-[8px]">Username</label>
+            <input id="login_username" name="username" class="w-full border border-[#ffffff33] rounded-[5px] bg-transparent text-[#fff] p-[10px]" type="text" placeholder="Username" required>
+          </div>
+          <div>
+            <label class="block mb-[8px]">Password</label>
+            <input id="login_password" name="password" class="w-full border border-[#ffffff33] rounded-[5px] bg-transparent text-[#fff] p-[10px]" type="password" placeholder="Password" required>
+          </div>
+          <div>
+            <button id="login_submit" type="submit" class="px-[20px] py-[10px] bg-main text-dark rounded-[5px] uppercase tracking-widest text-[12px] w-full">Login</button>
+          </div>
+          <div id="login_error" class="text-main text-[13px] mt-[10px] text-center" style="display:none;"></div>
+        </form>
+      </div>
+      <div id="dashboardSection" style="display:none;">
+      <div class="sec-head text-center mb-[40px]">
+        <h3 class="text-[24px] md:text-[30px] font-[500]">
+          <span class="text-main">Admin</span> Dashboard
+        </h3>
+        <div class="mt-[10px] text-[13px]">
+          <a class="underline mr-[10px]" href="index">Home</a>
+          <a class="underline" href="blogs">Blogs</a>
+          <a class="underline ml-[10px]" href="works">Projects</a>
+        </div>
+      </div>
+
+      <!-- Tab Navigation -->
+      <div class="mb-[30px] flex gap-[10px] border-b border-[#ffffff1a]">
+        <button id="postsTab" class="px-[20px] py-[10px] text-[14px] font-[500] border-b-2 border-main cursor-pointer">Posts</button>
+        <button id="projectsTab" class="px-[20px] py-[10px] text-[14px] font-[500] border-b-2 border-transparent cursor-pointer opacity-50">Projects</button>
+      </div>
+
+      <!-- Posts Section -->
+      <div id="postsSection">
+      <section class="bg-dark rounded-[10px] p-[20px] md:p-[30px] mb-[40px] border border-sub_dark">
+        <h4 class="text-[20px] md:text-[24px] font-[500] mb-[20px]">Create / Edit Post</h4>
+        <form id="adminForm" class="grid grid-cols-1 md:grid-cols-2 gap-[15px]">
+          <input type="hidden" id="admin_id">
+          <div>
+            <label class="block mb-[8px]">Title</label>
+            <input id="admin_title" class="w-full border border-[#ffffff33] rounded-[5px] bg-transparent text-[#fff] p-[10px]" type="text" placeholder="Post title">
+          </div>
+          <div>
+            <label class="block mb-[8px]">Date (YYYY-MM-DD)</label>
+            <input id="admin_date" class="w-full border border-[#ffffff33] rounded-[5px] bg-transparent text-[#fff] p-[10px]" type="text" placeholder="2024-01-01">
+          </div>
+          <div>
+            <label class="block mb-[8px]">Author</label>
+            <input id="admin_author" class="w-full border border-[#ffffff33] rounded-[5px] bg-transparent text-[#fff] p-[10px]" type="text" placeholder="Admin">
+          </div>
+          <div>
+            <label class="block mb-[8px]">Hero Image</label>
+            <input id="admin_hero_upload" class="w-full border border-[#ffffff33] rounded-[5px] bg-transparent text-[#fff] p-[10px]" type="file">
+            <input id="admin_hero" type="hidden">
+            <img id="admin_hero_preview" class="mt-[10px] max-w-[200px] rounded-[5px]" src="" alt="Hero Preview" style="display: none;">
+          </div>
+          <div class="md:col-span-2">
+            <label class="block mb-[8px]">Excerpt</label>
+            <input id="admin_excerpt" class="w-full border border-[#ffffff33] rounded-[5px] bg-transparent text-[#fff] p-[10px]" type="text" placeholder="Short summary">
+          </div>
+          <div class="md:col-span-2">
+            <label class="block mb-[8px]">Content (one paragraph per line)</label>
+            <textarea id="admin_content" rows="6" class="w-full border border-[#ffffff33] rounded-[5px] bg-transparent text-[#fff] p-[10px]" placeholder="Paragraph 1\nParagraph 2"></textarea>
+          </div>
+          <div>
+            <label class="block mb-[8px]">Categories (comma separated)</label>
+            <input id="admin_categories" class="w-full border border-[#ffffff33] rounded-[5px] bg-transparent text-[#fff] p-[10px]" type="text" placeholder="Tech, Design">
+          </div>
+          <div>
+            <label class="block mb-[8px]">Gallery URLs (comma separated)</label>
+            <input id="admin_gallery" class="w-full border border-[#ffffff33] rounded-[5px] bg-transparent text-[#fff] p-[10px]" type="text" placeholder="assets/imgs/blog/b1.jpg, assets/imgs/blog/b2.jpg">
+          </div>
+          <div class="md:col-span-2 flex gap-[10px] mt-[10px]">
+            <button id="admin_submit" type="submit" class="px-[20px] py-[10px] bg-main text-dark rounded-[5px] uppercase tracking-widest text-[12px]">Save</button>
+            <button id="admin_reset" type="button" class="px-[20px] py-[10px] border border-[#444343] rounded-[5px] uppercase tracking-widest text-[12px]">Reset</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="bg-dark rounded-[10px] p-[20px] md:p-[30px] border border-sub_dark">
+        <div class="flex items-center mb-[20px]">
+          <h4 class="text-[20px] md:text-[24px] font-[500]">Existing Posts</h4>
+          <span id="admin_status" class="ml-auto text-[12px] opacity-70"></span>
+        </div>
+        <div class="overflow-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="border-b border-[#ffffff1a]">
+                <th class="py-[8px] px-[8px]">ID</th>
+                <th class="py-[8px] px-[8px]">Title</th>
+                <th class="py-[8px] px-[8px]">Date</th>
+                <th class="py-[8px] px-[8px]">Author</th>
+                <th class="py-[8px] px-[8px]">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="adminPostsTbody"></tbody>
+          </table>
+        </div>
+      </section>
+      </div>
+
+      <!-- Projects Section -->
+      <div id="projectsSection" style="display: none;">
+      <section class="bg-dark rounded-[10px] p-[20px] md:p-[30px] mb-[40px] border border-sub_dark">
+        <h4 class="text-[20px] md:text-[24px] font-[500] mb-[20px]">Create / Edit Project</h4>
+        <form id="adminProjectForm" class="grid grid-cols-1 md:grid-cols-2 gap-[15px]">
+          <input type="hidden" id="project_id">
+          <div>
+            <label class="block mb-[8px]">Title</label>
+            <input id="project_title" class="w-full border border-[#ffffff33] rounded-[5px] bg-transparent text-[#fff] p-[10px]" type="text" placeholder="Project title">
+          </div>
+          <div>
+            <label class="block mb-[8px]">Date (YYYY-MM-DD)</label>
+            <input id="project_date" class="w-full border border-[#ffffff33] rounded-[5px] bg-transparent text-[#fff] p-[10px]" type="text" placeholder="2024-01-01">
+          </div>
+          <div class="md:col-span-2">
+            <label class="block mb-[8px]">Image 1</label>
+            <input id="project_image1_upload" class="w-full border border-[#ffffff33] rounded-[5px] bg-transparent text-[#fff] p-[10px]" type="file">
+            <input id="project_image1" type="hidden">
+            <img id="project_image1_preview" class="mt-[10px] max-w-[200px] rounded-[5px]" src="" alt="Image 1 Preview" style="display: none;">
+          </div>
+          <div class="md:col-span-2">
+            <label class="block mb-[8px]">Image 2</label>
+            <input id="project_image2_upload" class="w-full border border-[#ffffff33] rounded-[5px] bg-transparent text-[#fff] p-[10px]" type="file">
+            <input id="project_image2" type="hidden">
+            <img id="project_image2_preview" class="mt-[10px] max-w-[200px] rounded-[5px]" src="" alt="Image 2 Preview" style="display: none;">
+          </div>
+          <div class="md:col-span-2">
+            <label class="block mb-[8px]">Image 3</label>
+            <input id="project_image3_upload" class="w-full border border-[#ffffff33] rounded-[5px] bg-transparent text-[#fff] p-[10px]" type="file">
+            <input id="project_image3" type="hidden">
+            <img id="project_image3_preview" class="mt-[10px] max-w-[200px] rounded-[5px]" src="" alt="Image 3 Preview" style="display: none;">
+          </div>
+          <div class="md:col-span-2">
+            <label class="block mb-[8px]">Image 4</label>
+            <input id="project_image4_upload" class="w-full border border-[#ffffff33] rounded-[5px] bg-transparent text-[#fff] p-[10px]" type="file">
+            <input id="project_image4" type="hidden">
+            <img id="project_image4_preview" class="mt-[10px] max-w-[200px] rounded-[5px]" src="" alt="Image 4 Preview" style="display: none;">
+          </div>
+          <div class="md:col-span-2">
+            <label class="block mb-[8px]">Category</label>
+            <input id="project_category" class="w-full border border-[#ffffff33] rounded-[5px] bg-transparent text-[#fff] p-[10px]" type="text" placeholder="Branding, Web Design, etc.">
+          </div>
+          <div class="md:col-span-2">
+            <label class="block mb-[8px]">Paragraph 1</label>
+            <textarea id="project_paragraph1" rows="3" class="w-full border border-[#ffffff33] rounded-[5px] bg-transparent text-[#fff] p-[10px]" placeholder="First paragraph content"></textarea>
+          </div>
+          <div class="md:col-span-2">
+            <label class="block mb-[8px]">Paragraph 2 Title</label>
+            <input id="project_paragraph2_title" class="w-full border border-[#ffffff33] rounded-[5px] bg-transparent text-[#fff] p-[10px]" type="text" placeholder="Title for second paragraph">
+          </div>
+          <div class="md:col-span-2">
+            <label class="block mb-[8px]">Paragraph 2 Content</label>
+            <textarea id="project_paragraph2" rows="3" class="w-full border border-[#ffffff33] rounded-[5px] bg-transparent text-[#fff] p-[10px]" placeholder="Second paragraph content"></textarea>
+          </div>
+          <div class="md:col-span-2 flex gap-[10px] mt-[10px]">
+            <button id="project_submit" type="submit" class="px-[20px] py-[10px] bg-main text-dark rounded-[5px] uppercase tracking-widest text-[12px]">Save</button>
+            <button id="project_reset" type="button" class="px-[20px] py-[10px] border border-[#444343] rounded-[5px] uppercase tracking-widest text-[12px]">Reset</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="bg-dark rounded-[10px] p-[20px] md:p-[30px] border border-sub_dark">
+        <div class="flex items-center mb-[20px]">
+          <h4 class="text-[20px] md:text-[24px] font-[500]">Existing Projects</h4>
+          <span id="project_status" class="ml-auto text-[12px] opacity-70"></span>
+        </div>
+        <div class="overflow-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="border-b border-[#ffffff1a]">
+                <th class="py-[8px] px-[8px]">ID</th>
+                <th class="py-[8px] px-[8px]">Title</th>
+                <th class="py-[8px] px-[8px]">Date</th>
+                <th class="py-[8px] px-[8px]">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="adminProjectsTbody"></tbody>
+          </table>
+        </div>
+      </section>
+      </div>
+
+    </main>
+
+    <script src="assets/js/admin.js"></script>
+  </body>
+</html>

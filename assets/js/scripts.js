@@ -649,3 +649,153 @@ $(function () {
         });
     }
 });
+
+// ==================== Load Projects from JSON ====================
+function renderProjectCard(project) {
+    return `
+        <div class="">
+            <div class="item gallary-item mt-[50px] wow fadeInUp" data-wow-delay=".2s">
+                <div class="relative rounded-xl overflow-hidden p-[5px] border border-main border-opacity-0 hover:border-opacity-[100%] transition-all duration-700 ease-in-out">
+                    <a class="rounded-xl overflow-hidden w-full h-full" href="projects/project.html?id=${encodeURIComponent(project.id)}">
+                        <img class="rounded-xl overflow-hidden w-full h-[410px] object-cover object-center" src="${project.image1 || 'assets/imgs/works/1.jpg'}" alt="${project.title}">
+                    </a>
+                </div>
+                <div class="cont mt-[30px] px-[15px] flex justify-between items-center">
+                    <div>
+                        <span class="transition-all duration-700 ease-in-out text-[12px] py-[6px] px-[16px] rounded-[30px] border border-[#ffffff1a]">${project.category}</span>
+                        <h6 class="line-height-1 text-[18px] font-[500] mt-[15px]">
+                            <a href="projects/project.html?id=${encodeURIComponent(project.id)}">${project.title}</a>
+                        </h6>
+                    </div>
+                    <div class="flex justify-end w-[50px] h-[50]">
+                        <div class="arrow h-[50px] w-[50px]">
+                            <a class="h-[50px] w-[50px] text-[#fff] overflow-hidden" href="projects/project.html?id=${encodeURIComponent(project.id)}">
+                                <svg class="inline-block arrow w-[25px] stroke-[#fff] fill-[#fff] -rotate-45 ml-[15px]" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 34.2 32.3" xml:space="preserve" style="stroke-width: 2;">
+                                    <line x1="0" y1="16" x2="33" y2="16"></line>
+                                    <line x1="17.3" y1="0.7" x2="33.2" y2="16.5"></line>
+                                    <line x1="17.3" y1="31.6" x2="33.5" y2="15.4"></line>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function loadProjectsHomepage() {
+    fetch('/projects.json')
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById('projectsGrid');
+            if (!container) return;
+            
+            const projects = data.projects || [];
+            const latestProjects = projects.slice(-4); // Get latest 4 projects
+            
+            container.innerHTML = '';
+            latestProjects.forEach(project => {
+                container.innerHTML += renderProjectCard(project);
+            });
+            
+            // Reinitialize WOW animations if available
+            if (typeof WOW !== 'undefined') {
+                new WOW().init();
+            }
+        })
+        .catch(err => console.error('Error loading projects:', err));
+}
+
+// ==================== Load Blog Posts from JSON ====================
+function renderBlogCard(post) {
+    return `
+        <div class="col-lg-4 px-[15px]">
+            <div class="item md-mb30 wow fadeIn border border-sub_dark rounded-[5px]" data-wow-delay=".2s">
+                <div class="img rounded-t-[5px] overflow-hidden">
+                    <img class="w-full h-auto" src="${post.hero || 'assets/imgs/blog/1.jpg'}" alt="${post.title}">
+                </div>
+                <div class="box px-[10px]">
+                    <div class="cont relative bg-sub_dark p-[40px] rounded-[5px] mt-[-30px] z-10">
+                        <span class="date rounded-[30px] text-[11px] text-[#ddd] py-[5px] px-[15px] uppercase mb-[10px] border border-[#444343]">
+                            <i class="fas fa-calendar-alt mr-[10px] text-main"></i> ${formatDate(post.date)}
+                        </span>
+                        <h5 class="mt-[10px] text-[22px]">
+                            <a class="underline" href="blog-details.html?post=${encodeURIComponent(post.id)}">${post.title}</a>
+                        </h5>
+                    </div>
+                    <div class="info flex items-center px-[15px] py-[20px] text-[13px]">
+                        <div>
+                            <span data-post-id="${post.id}"><i class="fas fa-comments text-[12px] mr-[5px]"></i> 0 Comments</span>
+                        </div>
+                        <div class="ml-auto">
+                            <a class="flex" href="blog-details.html?post=${encodeURIComponent(post.id)}">Read More
+                                <svg class="ml-[5px]" width="18" height="18" viewbox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.2031 10.3281L11.5781 15.9531C11.535 15.9961 11.4839 16.0303 11.4276 16.0536C11.3713 16.077 11.3109 16.089 11.25 16.089C11.1891 16.089 11.1287 16.077 11.0724 16.0536C11.0161 16.0303 10.965 15.9961 10.9219 15.9531C10.8788 15.91 10.8446 15.8588 10.8213 15.8025C10.798 15.7462 10.786 15.6859 10.786 15.6249C10.786 15.564 10.798 15.5036 10.8213 15.4473C10.8446 15.391 10.8788 15.3399 10.9219 15.2968L15.7422 10.4687H3.125C3.00068 10.4687 2.88145 10.4193 2.79354 10.3314C2.70564 10.2435 2.65625 10.1242 2.65625 9.99993C2.65625 9.87561 2.70564 9.75638 2.79354 9.66847C2.88145 9.58056 3.00068 9.53118 3.125 9.53118H15.7422L10.9219 4.70305C10.8349 4.61603 10.786 4.498 10.786 4.37493C10.786 4.25186 10.8349 4.13383 10.9219 4.0468C11.0089 3.95978 11.1269 3.91089 11.25 3.91089C11.3731 3.91089 11.4911 3.95978 11.5781 4.0468L17.2031 9.6718C17.2476 9.71412 17.2829 9.76503 17.3071 9.82143C17.3313 9.87784 17.3438 9.93856 17.3438 9.99993C17.3438 10.0613 17.3313 10.122 17.3071 10.1784C17.2829 10.2348 17.2476 10.2857 17.2031 10.3281Z" fill="currentColor"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function formatDate(dateStr) {
+    try {
+        const d = new Date(dateStr);
+        return d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+    } catch (_) {
+        return dateStr || '';
+    }
+}
+
+function loadBlogHomepage() {
+    fetch('/posts.json')
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById('blogGrid');
+            if (!container) return;
+            
+            const posts = data.posts || [];
+            const latestPosts = posts.slice(-3).reverse(); // Get latest 3 posts in reverse order
+            
+            container.innerHTML = '';
+            latestPosts.forEach(post => {
+                container.innerHTML += renderBlogCard(post);
+            });
+            
+            // Load comment counts
+            fetch('/comments.json')
+                .then(r => r.json())
+                .then(data => {
+                    const comments = data.comments || [];
+                    const map = {};
+                    comments.forEach(c => {
+                        const postId = c.postId || 'default';
+                        map[postId] = (map[postId] || 0) + 1;
+                    });
+                    
+                    // Update comment counts
+                    document.querySelectorAll('[data-post-id]').forEach(el => {
+                        const postId = el.getAttribute('data-post-id');
+                        const count = map[postId] || 0;
+                        el.innerHTML = `<i class="fas fa-comments text-[12px] mr-[5px]"></i> ${count} Comments`;
+                    });
+                })
+                .catch(err => console.error('Error loading comments:', err));
+            
+            // Reinitialize WOW animations if available
+            if (typeof WOW !== 'undefined') {
+                new WOW().init();
+            }
+        })
+        .catch(err => console.error('Error loading blog posts:', err));
+}
+
+// Initialize on DOM ready
+document.addEventListener('DOMContentLoaded', function() {
+    loadProjectsHomepage();
+    loadBlogHomepage();
+});

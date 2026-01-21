@@ -1,0 +1,720 @@
+/* ================================================================
+   MOBILE & TABLET RESPONSIVE CSS
+   iPhone XR (375-414px) and Tablet (768px+) Optimization
+   ================================================================ */
+
+/* ==================== MOBILE FIRST (0px - 640px) ==================== */
+
+@media (max-width: 767px) {
+  /* Hide desktop navigation elements */
+  .nav-butn {
+    display: block !important;
+  }
+
+  /* Navbar adjustments */
+  .nav-top .grid {
+    grid-template-columns: 1fr auto;
+  }
+
+  .nav-top .col-md-4:nth-child(2),
+  .nav-top .col-md-4:nth-child(3) {
+    display: none !important;
+  }
+
+  /* Main container padding for mobile */
+  main {
+    padding: 0 !important;
+  }
+
+  /* Intro section - stack vertically */
+  .intro-profile .row {
+    flex-direction: column !important;
+    margin: 0 !important;
+  }
+
+  .intro-profile .md\:w-\[33\.33\%\],
+  .intro-profile .md\:w-\[66\.66\%\] {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Profile card */
+  .intro-profile .rounded-l-3xl {
+    border-radius: 20px !important;
+    margin-bottom: 20px !important;
+    padding: 40px 15px !important;
+  }
+
+  .intro-profile .rounded-r-3xl {
+    border-radius: 20px !important;
+    padding: 40px 15px !important;
+  }
+
+  /* Text sizing for mobile */
+  h1 {
+    font-size: 24px !important;
+    line-height: 1.3 !important;
+  }
+
+  h2 {
+    font-size: 20px !important;
+  }
+
+  h3 {
+    font-size: 18px !important;
+  }
+
+  h4 {
+    font-size: 16px !important;
+  }
+
+  h5 {
+    font-size: 14px !important;
+  }
+
+  h6 {
+    font-size: 12px !important;
+  }
+
+  p {
+    font-size: 13px !important;
+  }
+
+  /* Stats section - stack */
+  .stauts .md\:flex {
+    flex-direction: column !important;
+    gap: 25px;
+  }
+
+  .stauts .mr-\[40px\] {
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Services section grid */
+  .services {
+    grid-template-columns: 1fr !important;
+  }
+
+  .services .item {
+    margin-bottom: 20px !important;
+  }
+
+  /* Skills section */
+  .skills-content {
+    grid-template-columns: 1fr !important;
+  }
+
+  .skills-item {
+    width: 100% !important;
+    margin: 0 0 20px 0 !important;
+  }
+
+  /* Portfolio/Works grid */
+  .portfolio-grid,
+  .works-grid,
+  .gallery {
+    grid-template-columns: 1fr !important;
+  }
+
+  .swiper {
+    width: 100% !important;
+  }
+
+  /* About section */
+  .about-section .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .about-img {
+    margin-bottom: 30px !important;
+  }
+
+  /* Flex items for mobile */
+  .md\:flex-row {
+    flex-direction: column !important;
+  }
+
+  /* Remove negative margins on mobile */
+  .mb-\[-80px\] {
+    margin-bottom: 0 !important;
+  }
+
+  /* Padding adjustments */
+  .px-\[40px\] {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+
+  .md\:px-\[40px\] {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+
+  .py-\[80px\] {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  /* Lines grid - hide on mobile for cleaner look */
+  .lines {
+    opacity: 0.2 !important;
+  }
+
+  .lines span {
+    width: 5% !important;
+    margin: 0 2.5% !important;
+  }
+
+  /* Mobile friendly buttons */
+  button,
+  .butn {
+    font-size: 12px !important;
+    padding: 10px 15px !important;
+    min-height: 44px !important;
+  }
+
+  /* Form inputs */
+  input,
+  textarea,
+  select {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+    padding: 12px !important;
+  }
+
+  /* Contact form */
+  .contact-form .row {
+    flex-direction: column !important;
+  }
+
+  .contact-form .col {
+    width: 100% !important;
+  }
+
+  /* Social icons - adjust size */
+  .social i,
+  .social a i {
+    width: 35px !important;
+    height: 35px !important;
+    font-size: 12px !important;
+  }
+
+  /* Footer */
+  footer {
+    padding: 20px 15px !important;
+  }
+
+  footer .row {
+    flex-direction: column !important;
+  }
+
+  /* Modals and overlays */
+  .modal {
+    width: 95vw !important;
+  }
+
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden !important;
+  }
+
+  /* Navbar mobile menu */
+  .navbar {
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100vw !important;
+    z-index: 1000 !important;
+  }
+
+  .navbar-nav {
+    width: 100% !important;
+    flex-direction: column !important;
+  }
+
+  .nav-item {
+    text-align: center !important;
+    padding: 15px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Touch-friendly tap targets */
+  a, button, [role="button"] {
+    min-height: 44px !important;
+    min-width: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Blog/Comments mobile */
+  .main-post {
+    padding: 20px 15px !important;
+    border-radius: 10px !important;
+  }
+
+  .comments-post {
+    padding: 20px 15px !important;
+    border-radius: 10px !important;
+  }
+
+  .comment-card {
+    padding: 12px !important;
+    gap: 15px !important;
+  }
+
+  #comment-form input,
+  #comment-form textarea {
+    font-size: 16px !important;
+  }
+
+  /* Admin dashboard mobile */
+  .grid.grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  .grid.grid-cols-3 {
+    grid-template-columns: 1fr !important;
+  }
+
+  [class*="grid-cols-"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Table responsive */
+  table {
+    font-size: 12px !important;
+  }
+
+  table td,
+  table th {
+    padding: 8px !important;
+  }
+}
+
+/* ==================== IPHONE XR SPECIFIC (375px - 414px) ==================== */
+
+@media (max-width: 414px) {
+  html {
+    font-size: 13px;
+  }
+
+  body {
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: 20px !important;
+    margin-bottom: 15px !important;
+  }
+
+  h2 {
+    font-size: 18px !important;
+  }
+
+  h3 {
+    font-size: 16px !important;
+  }
+
+  .intro-profile .rounded-l-3xl,
+  .intro-profile .rounded-r-3xl {
+    padding: 25px 10px !important;
+    border-radius: 15px !important;
+  }
+
+  .stauts h2 {
+    font-size: 32px !important;
+  }
+
+  .stauts p {
+    font-size: 12px !important;
+  }
+
+  .py-\[80px\] {
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+  }
+
+  .px-\[15px\] {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  .mx-\[20px\] {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
+
+  .gap-\[40px\] {
+    gap: 20px !important;
+  }
+
+  .mr-\[40px\] {
+    margin-right: 20px !important;
+  }
+
+  .w-10 {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .text-main {
+    color: #1de5f3;
+  }
+
+  .bord {
+    font-size: 12px !important;
+    padding: 8px 15px !important;
+  }
+
+  section {
+    margin-bottom: 30px !important;
+  }
+
+  .mt-\[80px\] {
+    margin-top: 40px !important;
+  }
+
+  .md\:text-\[40px\] {
+    font-size: 20px !important;
+  }
+
+  .md\:text-\[50px\] {
+    font-size: 28px !important;
+  }
+
+  .md\:text-\[55px\] {
+    font-size: 30px !important;
+  }
+
+  .text-\[24px\] {
+    font-size: 16px !important;
+  }
+
+  .text-\[28px\] {
+    font-size: 18px !important;
+  }
+
+  .text-\[30px\] {
+    font-size: 20px !important;
+  }
+
+  .text-\[40px\] {
+    font-size: 22px !important;
+  }
+
+  .text-\[55px\] {
+    font-size: 28px !important;
+  }
+
+  .text-\[70px\] {
+    font-size: 32px !important;
+  }
+
+  /* iPhone notch safe area */
+  body {
+    padding-top: max(0px, env(safe-area-inset-top));
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
+    padding-bottom: max(0px, env(safe-area-inset-bottom));
+  }
+
+  nav,
+  header {
+    padding-top: max(15px, env(safe-area-inset-top));
+  }
+}
+
+/* ==================== SMALL TABLET (480px - 640px) ==================== */
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .intro-profile .rounded-l-3xl,
+  .intro-profile .rounded-r-3xl {
+    padding: 35px 20px !important;
+  }
+
+  h1 {
+    font-size: 28px !important;
+  }
+
+  h2 {
+    font-size: 22px !important;
+  }
+
+  .stauts h2 {
+    font-size: 40px !important;
+  }
+
+  .text-\[40px\] {
+    font-size: 28px !important;
+  }
+
+  .text-\[55px\] {
+    font-size: 38px !important;
+  }
+
+  .py-\[80px\] {
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+  }
+
+  /* Better grid on small tablets */
+  .services {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* ==================== TABLET & SMALL SCREEN (768px - 1024px) ==================== */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Tablet navigation tweaks */
+  .nav-top .col-md-4:nth-child(2) {
+    display: block !important;
+  }
+
+  .nav-top .col-md-4:nth-child(3) {
+    display: none !important;
+  }
+
+  /* Tablet grid layouts */
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .grid-cols-5 {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  /* Services on tablet */
+  .services {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Portfolio on tablet */
+  .portfolio-grid,
+  .gallery {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Text sizing for tablet */
+  h1 {
+    font-size: 32px !important;
+  }
+
+  h2 {
+    font-size: 24px !important;
+  }
+
+  /* Padding for tablet */
+  .px-\[40px\] {
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+  }
+
+  .py-\[80px\] {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+
+  /* About section on tablet */
+  .about-section .grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Forms on tablet */
+  input,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* ==================== LANDSCAPE MODE (Mobile Landscape) ==================== */
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .py-\[80px\] {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+
+  .py-\[40px\] {
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+  }
+
+  h1 {
+    margin-bottom: 10px !important;
+  }
+
+  .intro-profile .rounded-l-3xl,
+  .intro-profile .rounded-r-3xl {
+    padding: 20px 15px !important;
+  }
+
+  .stauts {
+    margin-top: 20px !important;
+  }
+
+  .social i,
+  .social a i {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  nav,
+  .navbar {
+    max-height: 100vh !important;
+    overflow-y: auto !important;
+  }
+
+  /* Reduce spacing in landscape */
+  section {
+    margin-bottom: 15px !important;
+  }
+
+  .gap-\[40px\] {
+    gap: 20px !important;
+  }
+}
+
+/* ==================== UTILITY CLASSES FOR RESPONSIVE ==================== */
+
+.hide-mobile {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .hide-mobile {
+    display: block !important;
+  }
+}
+
+.show-mobile {
+  display: block !important;
+}
+
+@media (min-width: 768px) {
+  .show-mobile {
+    display: none !important;
+  }
+}
+
+.touch-lg {
+  padding: 12px 16px !important;
+}
+
+@media (max-width: 767px) {
+  .touch-lg {
+    padding: 14px 18px !important;
+  }
+}
+
+.mobile-center {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .mobile-center {
+    text-align: left;
+  }
+}
+
+/* ==================== ACCESSIBILITY ==================== */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==================== HIGH DPI DISPLAYS ==================== */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Optimize for high DPI screens like iPhone */
+  img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+/* ==================== PRINT STYLES ==================== */
+
+@media print {
+  .nav-top,
+  .navbar,
+  footer,
+  .progress-wrap,
+  .cursor {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  a {
+    color: black;
+  }
+
+  .py-\[80px\] {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+}
+
+/* ==================== SMOOTH SCROLLING ==================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ==================== INPUT FOCUS FIXES ==================== */
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #1de5f3 !important;
+}
+
+/* ==================== MOBILE OPTIMIZATIONS ==================== */
+
+/* Prevent double tap zoom on buttons */
+button,
+a,
+[role="button"] {
+  touch-action: manipulation;
+}
+
+/* Improve touch targets */
+@media (hover: none) and (pointer: coarse) {
+  button,
+  a,
+  input[type="button"],
+  input[type="submit"],
+  [role="button"] {
+    min-height: 48px;
+    min-width: 48px;
+  }
+
+  /* Add more padding for touch devices */
+  .nav-item {
+    padding: 18px 15px !important;
+  }
+
+  /* Increase tap target area */
+  a {
+    padding: 8px 4px;
+    display: inline-block;
+  }
+}
+

@@ -29,3 +29,6 @@
 
 /* == swiper.min font == */
 @import url('plugins/swiper.min.css');
+
+/* == mobile responsive styles == */
+@import url('mobile-responsive.css');

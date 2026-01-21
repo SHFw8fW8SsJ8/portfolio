@@ -268,7 +268,7 @@ Add the correct vertical alignment in Chrome and Firefox.
 progress {
   vertical-align: baseline;
 }
-
+ #f413
 /*
 Correct the cursor style of increment and decrement buttons in Safari.
 */
@@ -2679,12 +2679,12 @@ video {
 
 .border-main {
   --tw-border-opacity: 1;
-  border-color: rgb(200 243 29 / var(--tw-border-opacity));
+  border-color: rgb(29, 218, 243 / var(--tw-border-opacity));
 }
 
 .border-main2 {
   --tw-border-opacity: 1;
-  border-color: rgb(85 230 165 / var(--tw-border-opacity));
+  border-color: rgb(29, 218, 243 / var(--tw-border-opacity));
 }
 
 .border-sub_dark {
@@ -2771,12 +2771,12 @@ video {
 
 .bg-main {
   --tw-bg-opacity: 1;
-  background-color: rgb(200 243 29 / var(--tw-bg-opacity));
+  background-color: rgb(29, 218, 243 / var(--tw-bg-opacity));
 }
 
 .bg-main2 {
   --tw-bg-opacity: 1;
-  background-color: rgb(85 230 165 / var(--tw-bg-opacity));
+  background-color: rgb(29, 218, 243 / var(--tw-bg-opacity));
 }
 
 .bg-sub_dark {
@@ -3497,12 +3497,12 @@ video {
 
 .text-main {
   --tw-text-opacity: 1;
-  color: rgb(200 243 29 / var(--tw-text-opacity));
+  color: #1de5f3;
 }
 
 .text-main2 {
   --tw-text-opacity: 1;
-  color: rgb(85 230 165 / var(--tw-text-opacity));
+  color: rgb(29, 218, 243 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -4319,13 +4319,13 @@ video {
 .after\:bg-main::after {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
-  background-color: rgb(200 243 29 / var(--tw-bg-opacity));
+  background-color: rgb(29, 218, 243 / var(--tw-bg-opacity));
 }
 
 .after\:bg-main2::after {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
-  background-color: rgb(85 230 165 / var(--tw-bg-opacity));
+  background-color: rgb(29, 218, 243 / var(--tw-bg-opacity));
 }
 
 .after\:bg-transparent::after {
@@ -4381,12 +4381,12 @@ video {
 
 .hover\:bg-main:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(200 243 29 / var(--tw-bg-opacity));
+  background-color: rgb(29, 218, 243 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-main2:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(85 230 165 / var(--tw-bg-opacity));
+  background-color: rgb(29, 218, 243 / var(--tw-bg-opacity));
 }
 
 .hover\:font-bold:hover {

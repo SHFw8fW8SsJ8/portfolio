@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Helper to show status messages
   const showStatus = (message, isError = false) => {
     adminStatusSpan.textContent = message;
-    adminStatusSpan.style.color = isError ? 'red' : 'green';
+    adminStatusSpan.style.color = isError ? 'red' : '#1de5f3';
     setTimeout(() => {
       adminStatusSpan.textContent = '';
       adminStatusSpan.style.color = '';
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const showProjectStatus = (message, isError = false) => {
     projectStatusSpan.textContent = message;
-    projectStatusSpan.style.color = isError ? 'red' : 'green';
+    projectStatusSpan.style.color = isError ? 'red' : '#1de5f3';
     setTimeout(() => {
       projectStatusSpan.textContent = '';
       projectStatusSpan.style.color = '';

@@ -58,13 +58,32 @@
       </svg>
     </div>
 
-    <div class="lines fixed inset-0 !w-full h-screen flex z-[-1] pointer-events-none">
-      <span class="h-full !w-[10%] mx-[5%] border-r border-l border-white border-opacity-5 border-dashed"></span>
-      <span class="h-full !w-[10%] mx-[5%] border-r border-l border-white border-opacity-5 border-dashed"></span>
-      <span class="h-full !w-[10%] mx-[5%] border-r border-l border-white border-opacity-5 border-dashed"></span>
-      <span class="h-full !w-[10%] mx-[5%] border-r border-l border-white border-opacity-5 border-dashed"></span>
-      <span class="h-full !w-[10%] mx-[5%] border-r border-l border-white border-opacity-5 border-dashed"></span>
+    <div class="lines fixed inset-0 !w-full h-screen z-[-1] pointer-events-none overflow-hidden">
+      <!-- Animated gradient background -->
+      <div class="absolute inset-0 bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460] opacity-50"></div>
+      
+      <!-- Animated grid pattern -->
+      <svg class="absolute inset-0 w-full h-full opacity-20" preserveAspectRatio="none">
+        <defs>
+          <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1"/>
+          </pattern>
+          <linearGradient id="gridGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:rgba(114, 3, 3, 0.438);stop-opacity:1" />
+            <stop offset="50%" style="stop-color:rgba(255, 255, 255, 0.05);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:rgba(100, 232, 255, 0.295);stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid)" />
+        <rect width="100%" height="100%" fill="url(#gridGradient)" opacity="0.5" />
+      </svg>
+      
+      <!-- Floating accent circles -->
+      <div class="absolute top-[10%] left-[5%] w-[300px] h-[300px] rounded-full bg-gradient-to-br from-[#ffad00] to-transparent opacity-10 blur-3xl animate-pulse"></div>
+      <div class="absolute top-[50%] right-[10%] w-[250px] h-[250px] rounded-full bg-gradient-to-br from-[#64c8ff] to-transparent opacity-10 blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+      <div class="absolute bottom-[15%] left-[20%] w-[200px] h-[200px] rounded-full bg-gradient-to-br from-[#ffad00] to-transparent opacity-5 blur-3xl animate-pulse" style="animation-delay: 4s;"></div>
     </div>
+    <!-- ==================== Start Navbar ==================== -->
    <div class="nav-top pt-[30px] pb-[30px] relative z-10">
     <div class="container py-[6px] relative w-full mx-auto xxl:max-w-[1280px] xl:max-w-[1140px] lg:max-w-[1024px] md:max-w-[768px] sm:max-w-[640px] mx-auto px-[3px]">
       <div class="grid md:grid-cols-12 grid-cols-1">

@@ -1,18 +1,5 @@
 @charset "UTF-8";
-/*-----------------------------------------------------------------------------------
 
-    Theme Name: Gavi
-    Theme URI: http://
-    Description: Creative Personal & Portfolio
-    Author: UI-ThemeZ
-    Author URI: http://themeforest.net/user/UI-ThemeZ
-    Version: 1.0
-
------------------------------------------------------------------------------------*/
-/************ TABLE OF CONTENTS ***************
-
-
------------------------------------------------------------------*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -175,20 +162,20 @@ body:before {
   transition: all 400ms linear;
 }
 .gallary-item:hover .branding {
-  background: #c8f31d;
+  background: #1de5f3;
   color: #1d1d1d;
 }
 .gallary-item:hover .arrow {
-  color: #c8f31d;
-  fill: #c8f31d;
-  stroke: #c8f31d;
+  color: #1de5f3;
+  fill: #1de5f3;
+  stroke: #1de5f3;
 }
 .services .item:hover .bord-color {
   opacity: 1;
-  box-shadow: #c8f31d 500px;
+  box-shadow: #1de5f3 500px;
 }
 .bord-color {
-  box-shadow: 0px -40px 50px #c8f31d;
+  box-shadow: 0px -40px 50px #1de5f3;
 }
 .swiper-button-prev:after {
   display: none !important;
@@ -240,12 +227,12 @@ body:before {
 .comment-status.info{color:#ddd}
 .comment-status.warn{color:#f5d06c}
 .comment-status.error{color:#f38f8f}
-.comment-status.success{color:#c8f31d}
+.comment-status.success{color:#1de5f3}
 .comment-loading{display:grid;grid-template-rows:repeat(3,14px);gap:10px;padding:10px}
 .comment-loading .bar{height:14px;border-radius:6px;background:linear-gradient(90deg,rgba(255,255,255,0.06),rgba(255,255,255,0.12),rgba(255,255,255,0.06));background-size:200% 100%;animation:loadingShimmer 1.2s infinite}
 @keyframes loadingShimmer{0%{background-position:0% 0%}100%{background-position:200% 0%}}
 #comment-form input,#comment-form textarea{border-color:rgba(255,255,255,0.2);background-color:transparent;transition:border-color .2s, background-color .2s}
-#comment-form input:focus,#comment-form textarea:focus{border-color:#c8f31d;background-color:rgba(255,255,255,0.03)}
+#comment-form input:focus,#comment-form textarea:focus{border-color:#1de5f3;background-color:rgba(255,255,255,0.03)}
 #comment-form button{border-color:#444;transition:transform .1s ease,opacity .2s ease,background-color .2s ease}
 #comment-form button:hover{transform:translateY(-1px);opacity:.95}
 #comment-form button:active{transform:translateY(0)}
@@ -260,7 +247,7 @@ body:before {
 .comment-card .cont .meta{color:#bbb;font-size:12px}
 /* Form accents to match theme */
 #comment-form input,#comment-form textarea{border:1px solid rgba(255,255,255,0.18);border-radius:8px;padding:10px;background-color:transparent;color:#fff}
-#comment-form input:focus,#comment-form textarea:focus{border-color:#c8f31d;background-color:rgba(255,255,255,0.03)}
-#comment-form button{background-color:#c8f31d !important;color:#1d1d1d;border:1px solid #c8f31d;border-radius:8px}
+#comment-form input:focus,#comment-form textarea:focus{border-color:#1de5f3;background-color:rgba(255,255,255,0.03)}
+#comment-form button{background-color:#1de5f3 !important;color:#1d1d1d;border:1px solid #1de5f3;border-radius:8px}
 #comment-form button:hover{background-color:#bde812;box-shadow:0 6px 16px rgba(200,243,29,0.18)}
 #comment-form button:active{transform:translateY(0)}
